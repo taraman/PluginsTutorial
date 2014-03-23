@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginsTutorial.Web", "PluginsTutorial.Web\PluginsTutorial.Web.csproj", "{BC514959-DA56-45D5-946C-9BB56F813761}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginsTutorial.Data", "PluginsTutorial.Data\PluginsTutorial.Data.csproj", "{3DAF533A-2CA4-4EAD-8BF5-B6813229973B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginsTutorial.Services", "PluginsTutorial.Services\PluginsTutorial.Services.csproj", "{020C38D4-2D93-4FA8-8BF8-EB24817352CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC514959-DA56-45D5-946C-9BB56F813761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC514959-DA56-45D5-946C-9BB56F813761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC514959-DA56-45D5-946C-9BB56F813761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC514959-DA56-45D5-946C-9BB56F813761}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DAF533A-2CA4-4EAD-8BF5-B6813229973B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DAF533A-2CA4-4EAD-8BF5-B6813229973B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DAF533A-2CA4-4EAD-8BF5-B6813229973B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DAF533A-2CA4-4EAD-8BF5-B6813229973B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{020C38D4-2D93-4FA8-8BF8-EB24817352CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{020C38D4-2D93-4FA8-8BF8-EB24817352CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{020C38D4-2D93-4FA8-8BF8-EB24817352CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{020C38D4-2D93-4FA8-8BF8-EB24817352CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
