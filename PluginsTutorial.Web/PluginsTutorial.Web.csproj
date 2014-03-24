@@ -136,6 +136,35 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
+    <None Include="Scripts\jquery-1.11.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.11.0.js" />
+    <Content Include="Scripts\jquery-1.11.0.min.js" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.js" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Scripts\knockout-3.1.0.debug.js" />
+    <Content Include="Scripts\knockout-3.1.0.js" />
+    <Content Include="Scripts\knockout.mapping-latest.debug.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
+    <Content Include="Scripts\r.js" />
+    <Content Include="Scripts\require.js" />
+    <Content Include="Scripts\text.js" />
+    <Content Include="Scripts\underscore.js" />
+    <Content Include="Scripts\underscore.min.js" />
+    <Content Include="Scripts\underscore.min.map" />
+    <None Include="Static\js\lib\jquery\jquery-1.11.0.intellisense.js" />
+    <Content Include="Static\js\lib\jquery-migrate\jquery-migrate-1.2.1.js" />
+    <Content Include="Static\js\lib\jquery-migrate\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Static\js\lib\jquery\jquery-1.11.0.js" />
+    <Content Include="Static\js\lib\jquery\jquery-1.11.0.min.js" />
+    <Content Include="Static\js\lib\knockout\knockout-3.1.0.debug.js" />
+    <Content Include="Static\js\lib\knockout\knockout-3.1.0.js" />
+    <Content Include="Static\js\lib\knockout\knockout.mapping-latest.debug.js" />
+    <Content Include="Static\js\lib\knockout\knockout.mapping-latest.js" />
+    <Content Include="Static\js\lib\require\r.js" />
+    <Content Include="Static\js\lib\require\require.js" />
+    <Content Include="Static\js\lib\require\text.js" />
+    <Content Include="Static\js\lib\underscore\underscore.js" />
+    <Content Include="Static\js\lib\underscore\underscore.min.js" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -145,10 +174,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
+    <Content Include="Scripts\jquery-1.11.0.min.map" />
+    <Content Include="Static\js\lib\jquery\jquery-1.11.0.min.map" />
+    <Content Include="Static\js\lib\underscore\underscore.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Static\css\" />
+    <Folder Include="Static\images\" />
+    <Folder Include="Static\js\plugins\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
