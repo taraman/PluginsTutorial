@@ -125,10 +125,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\IocConfig.cs" />
+    <Compile Include="Controllers\FileUpload\JQueryFileUploadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\UploadFilesResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBootstrap.aspx.cs">
       <DependentUpon>TestBootstrap.aspx</DependentUpon>
@@ -461,6 +463,30 @@
     <Content Include="Static\lib\respond\respond.min.js" />
     <Content Include="Static\lib\underscore\underscore.js" />
     <Content Include="Static\lib\underscore\underscore.min.js" />
+    <Content Include="Static\plugins\jQueryFileUpload\css\demo-ie8.css" />
+    <Content Include="Static\plugins\jQueryFileUpload\css\demo.css" />
+    <Content Include="Static\plugins\jQueryFileUpload\css\jquery.fileupload-noscript.css" />
+    <Content Include="Static\plugins\jQueryFileUpload\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="Static\plugins\jQueryFileUpload\css\jquery.fileupload-ui.css" />
+    <Content Include="Static\plugins\jQueryFileUpload\css\jquery.fileupload.css" />
+    <Content Include="Static\plugins\jQueryFileUpload\css\style.css" />
+    <Content Include="Static\plugins\jQueryFileUpload\img\loading.gif" />
+    <Content Include="Static\plugins\jQueryFileUpload\img\progressbar.gif" />
+    <Content Include="Static\plugins\jQueryFileUpload\js\app.js" />
+    <Content Include="Static\plugins\jQueryFileUpload\js\cors\jquery.postmessage-transport.js" />
+    <Content Include="Static\plugins\jQueryFileUpload\js\cors\jquery.xdr-transport.js" />
+    <Content Include="Static\plugins\jQueryFileUpload\js\jquery.fileupload-angular.js" />
+    <Content Include="Static\plugins\jQueryFileUpload\js\jquery.fileupload-audio.js" />
+    <Content Include="Static\plugins\jQueryFileUpload\js\jquery.fileupload-image.js" />
+    <Content Include="Static\plugins\jQueryFileUpload\js\jquery.fileupload-jquery-ui.js" />
+    <Content Include="Static\plugins\jQueryFileUpload\js\jquery.fileupload-process.js" />
+    <Content Include="Static\plugins\jQueryFileUpload\js\jquery.fileupload-ui.js" />
+    <Content Include="Static\plugins\jQueryFileUpload\js\jquery.fileupload-validate.js" />
+    <Content Include="Static\plugins\jQueryFileUpload\js\jquery.fileupload-video.js" />
+    <Content Include="Static\plugins\jQueryFileUpload\js\jquery.fileupload.js" />
+    <Content Include="Static\plugins\jQueryFileUpload\js\jquery.iframe-transport.js" />
+    <Content Include="Static\plugins\jQueryFileUpload\js\main.js" />
+    <Content Include="Static\plugins\jQueryFileUpload\js\vendor\jquery.ui.widget.js" />
     <Content Include="TestBootstrap.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -478,13 +504,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\FileUpload\Index.cshtml" />
+    <Content Include="Views\FileUpload\JQueryFileUpload\Basic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Static\img\" />
-    <Folder Include="Static\plugins\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -518,7 +543,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>16663</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:26361/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
