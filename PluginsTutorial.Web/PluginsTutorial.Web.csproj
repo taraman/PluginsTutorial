@@ -451,6 +451,7 @@
     <Content Include="Static\lib\numeral\languages\uk-UA.min.js" />
     <Content Include="Static\lib\numeral\numeral.js" />
     <Content Include="Static\lib\numeral\numeral.min.js" />
+    <Content Include="Static\lib\require\domReady.js" />
     <Content Include="Static\lib\require\r.js" />
     <Content Include="Static\lib\require\require.js" />
     <Content Include="Static\lib\require\text.js" />
