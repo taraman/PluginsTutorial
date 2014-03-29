@@ -2,30 +2,40 @@
 	ViewBag.Title = "JQuery File Upload - Basic";
 }
 
-<link href="~/Static/plugins/jQueryFileUpload/css/jquery.fileupload.css" rel="stylesheet" />
-<script src="~/Static/plugins/jQueryFileUpload/js/vendor/jquery.ui.widget.js"></script>
-<script src="~/Static/plugins/jQueryFileUpload/js/jquery.fileupload.js"></script>
+@section head {
+	<link href="~/Static/plugins/jQueryFileUpload/css/jquery.fileupload.css" rel="stylesheet" />
+	<script src="~/Static/plugins/jQueryFileUpload/js/vendor/jquery.ui.widget.js"></script>
+	<script src="~/Static/plugins/jQueryFileUpload/js/jquery.fileupload.js"></script>
 
-<script type="text/javascript">
-	$(document).ready(function () {
-		$('#fileupload').fileupload({
-			dataType: 'json',
-			url: '/JQueryFileUpload/UploadFiles',
-			autoUpload: true,
-			done: function (e, data) {
-				$('.file_name').html(data.result.name);
-				$('.file_type').html(data.result.type);
-				$('.file_size').html(data.result.size);
-			}
-		}).on('fileuploadprogressall', function (e, data) {
-			var progress = parseInt(data.loaded / data.total * 100, 10);
-			$('.progress .progress-bar').css('width', progress + '%');
+	@*this library used to work with IE9 or less, but it will not read the return json object *@
+	@*<script src="~/Static/plugins/jQueryFileUpload/js/jquery.iframe-transport.js"></script>*@
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#fileupload').fileupload({
+				dataType: 'json',
+				url: '/JQueryFileUpload/UploadFiles',
+				autoUpload: true,
+				done: function (e, data) {
+					$('.file_name').html(data.result.name);
+					$('.file_type').html(data.result.type);
+					$('.file_size').html(data.result.size);
+					
+					//reset progress bar
+					//$('.progress .progress-bar').css('width', 0 + '%');
+				}
+			}).on('fileuploadprogressall', function (e, data) {
+				var progress = parseInt(data.loaded / data.total * 100, 10);
+				$('.progress .progress-bar').css('width', progress + '%');
+			});
 		});
-	});
-</script>
+	</script>
+}
+
 
 
 <div class="container">
+	<h1>JQuery File Upload</h1>
 	<h1>@ViewBag.Title</h1>
 	<span class="btn btn-success fileinput-button">
 		<i class="glyphicon glyphicon-plus"></i>

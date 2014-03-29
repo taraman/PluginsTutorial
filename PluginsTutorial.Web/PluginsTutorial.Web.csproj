@@ -125,12 +125,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\IocConfig.cs" />
+    <Compile Include="Controllers\FileUpload\FileUploadHandler.ashx.cs">
+      <DependentUpon>FileUploadHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\FileUpload\JQueryFileUploadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\UploadFilesResult.cs" />
+    <Compile Include="Models\ViewDataUploadFilesResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBootstrap.aspx.cs">
       <DependentUpon>TestBootstrap.aspx</DependentUpon>
@@ -144,6 +148,30 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App\FileUpload\JQueryFileUpload\images\animated-overlay.gif" />
+    <Content Include="App\FileUpload\JQueryFileUpload\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\images\ui-icons_222222_256x240.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\images\ui-icons_454545_256x240.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\images\ui-icons_888888_256x240.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\jquery-ui.css" />
+    <Content Include="App\FileUpload\JQueryFileUpload\jquery-ui.min.js" />
+    <Content Include="App\FileUpload\JQueryFileUpload\jquery.fileupload-ui.css" />
+    <Content Include="App\FileUpload\JQueryFileUpload\jquery.fileupload-ui.js" />
+    <Content Include="App\FileUpload\JQueryFileUpload\jquery.fileupload.js" />
+    <Content Include="App\FileUpload\JQueryFileUpload\jquery.iframe-transport.js" />
+    <Content Include="App\FileUpload\JQueryFileUpload\Basic.js" />
+    <Content Include="App\FileUpload\JQueryFileUpload\jquery.min.js" />
+    <Content Include="App\FileUpload\JQueryFileUpload\jquery.tmpl.min.js" />
+    <Content Include="App\FileUpload\JQueryFileUpload\pbar-ani.gif" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -217,6 +245,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Controllers\FileUpload\FileUploadHandler.ashx" />
     <None Include="Scripts\jquery-1.11.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -319,6 +348,8 @@
     <Content Include="Static\lib\bootstrap\js\bootstrap.min.js" />
     <Content Include="Static\lib\jquery-migrate\jquery-migrate-1.2.1.js" />
     <Content Include="Static\lib\jquery-migrate\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Static\lib\jquery-tmpl\jquery.tmpl.js" />
+    <Content Include="Static\lib\jquery-tmpl\jquery.tmpl.min.js" />
     <Content Include="Static\lib\jquery-ui\jquery-ui-1.10.4.js" />
     <Content Include="Static\lib\jquery-ui\jquery-ui-1.10.4.min.js" />
     <Content Include="Static\lib\jquery-ui\themes\base\images\animated-overlay.gif" />
@@ -488,6 +519,7 @@
     <Content Include="Static\plugins\jQueryFileUpload\js\main.js" />
     <Content Include="Static\plugins\jQueryFileUpload\js\vendor\jquery.ui.widget.js" />
     <Content Include="TestBootstrap.aspx" />
+    <Content Include="Views\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -502,12 +534,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Test.cshtml" />
-    <Content Include="Views\FileUpload\Index.cshtml" />
     <Content Include="Views\FileUpload\JQueryFileUpload\Basic.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\" />
     <Folder Include="App_Data\" />
     <Folder Include="Static\img\" />
   </ItemGroup>
