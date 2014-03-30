@@ -22,16 +22,16 @@ namespace PluginsTutorial.Web.Controllers
         }
 
 
-		public ActionResult Test()
-		{
-			return View();
-		}
+		//public ActionResult Test()
+		//{
+		//	return View();
+		//}
 
 
-		public ActionResult FileUpload()
-		{
-			return View("~/Views/FileUpload/Index.cshtml");
-		}
+		//public ActionResult FileUpload()
+		//{
+		//	return View("~/Views/FileUpload/Index.cshtml");
+		//}
 
 		
 		public JsonResult GetAllProductsWithCategoriesOrdredByProductName()
