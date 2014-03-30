@@ -1,4 +1,4 @@
-﻿/*
+/*
  * jQuery File Upload Plugin JS Example 5.0.2
  * https://github.com/blueimp/jQuery-File-Upload
  *
