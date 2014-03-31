@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using PluginsTutorial.Web.Models;
+using FileInfo = System.IO.FileInfo;
 
 
 namespace PluginsTutorial.Web.Controllers.FileUpload
@@ -15,6 +16,19 @@ namespace PluginsTutorial.Web.Controllers.FileUpload
 		public ActionResult Basic()
 		{
 			return View("~/Views/FileUpload/JQueryFileUpload/Basic.cshtml");
+		}
+
+
+
+		public ActionResult GenericHandlerBasic()
+		{
+			return View("~/Views/FileUpload/JQueryFileUpload/UsingGenericHandler/Basic.aspx");
+		}
+
+
+		public ActionResult GenericHandlerAdvanced()
+		{
+			return View("~/Views/FileUpload/JQueryFileUpload/UsingGenericHandler/Advanced.aspx");
 		}
 
 		
@@ -55,10 +69,7 @@ namespace PluginsTutorial.Web.Controllers.FileUpload
 
 		
 
-		public ActionResult GenericHandlerBasic()
-		{
-			return View("~/Views/FileUpload/JQueryFileUpload/UsingGenericHandler/Basic.aspx");
-		}
+		
 
 
 

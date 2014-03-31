@@ -37,7 +37,7 @@ namespace PluginsTutorial.Web
 				if (hpf.ContentLength == 0)
 					continue;
 
-				string savedFileName = Path.Combine(context.Server.MapPath("~/App_Data"), Path.GetFileName(hpf.FileName));
+				var savedFileName = Path.Combine(context.Server.MapPath("~/App_Data"), Path.GetFileName(hpf.FileName));
 				hpf.SaveAs(savedFileName);
 
 				r.Add(new ViewDataUploadFilesResult()

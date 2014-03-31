@@ -1,6 +1,8 @@
 # environment-specific config files
 connectionStrings.config
 PluginsTutorial.Web/App_Data/*.*
+PluginsTutorial.Web/Resources/*.*
+
 
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
 [Bb]in/

@@ -20,9 +20,6 @@
 					$('.file_name').html(data.result.name);
 					$('.file_type').html(data.result.type);
 					$('.file_size').html(data.result.size);
-					
-					//reset progress bar
-					//$('.progress .progress-bar').css('width', 0 + '%');
 				}
 			}).on('fileuploadprogressall', function (e, data) {
 				var progress = parseInt(data.loaded / data.total * 100, 10);

@@ -125,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\IocConfig.cs" />
+    <Compile Include="Controllers\FileUpload\AdvancedFileUploadHandler.ashx.cs">
+      <DependentUpon>AdvancedFileUploadHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\FileUpload\FileUploadHandler.ashx.cs">
       <DependentUpon>FileUploadHandler.ashx</DependentUpon>
     </Compile>
@@ -133,6 +136,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FileInfo.cs" />
+    <Compile Include="Models\FilesStatus.cs" />
     <Compile Include="Models\UploadFilesResult.cs" />
     <Compile Include="Models\ViewDataUploadFilesResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -148,30 +153,31 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\images\animated-overlay.gif" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\images\ui-icons_222222_256x240.png" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\images\ui-icons_454545_256x240.png" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\images\ui-icons_888888_256x240.png" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\Basic.js" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\jquery-ui.css" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\jquery-ui.min.js" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\jquery.fileupload-ui.css" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\jquery.fileupload-ui.js" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\jquery.fileupload.js" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\jquery.iframe-transport.js" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\jquery.min.js" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\jquery.tmpl.min.js" />
-    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic\pbar-ani.gif" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Advanced.js" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic.js" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\jQueryFileUpload\jquery.fileupload-ui.css" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\jQueryFileUpload\jquery.fileupload-ui.js" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\jQueryFileUpload\jquery.fileupload.js" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\jQueryFileUpload\jquery.iframe-transport.js" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\jQueryFileUpload\pbar-ani.gif" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\images\animated-overlay.gif" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\images\ui-icons_222222_256x240.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\images\ui-icons_454545_256x240.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\images\ui-icons_888888_256x240.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\jquery-ui.css" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\jquery-ui.min.js" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\jquery.min.js" />
+    <Content Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\lib\jquery.tmpl.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -246,6 +252,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Controllers\FileUpload\FileUploadHandler.ashx" />
+    <Content Include="Controllers\FileUpload\AdvancedFileUploadHandler.ashx" />
     <None Include="Scripts\jquery-1.11.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -956,6 +963,7 @@
     <Content Include="Static\plugins\jQueryFileUpload\js\main.js" />
     <Content Include="Static\plugins\jQueryFileUpload\js\vendor\jquery.ui.widget.js" />
     <Content Include="TestBootstrap.aspx" />
+    <Content Include="Views\FileUpload\JQueryFileUpload\UsingGenericHandler\Advanced.aspx" />
     <Content Include="Views\FileUpload\JQueryFileUpload\UsingGenericHandler\Basic.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -974,8 +982,8 @@
     <Content Include="Views\FileUpload\JQueryFileUpload\Basic.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\FileUpload\JQueryFileUpload\UsingGenericHandler\Advanced\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Resources\" />
     <Folder Include="Static\img\" />
   </ItemGroup>
   <ItemGroup>
