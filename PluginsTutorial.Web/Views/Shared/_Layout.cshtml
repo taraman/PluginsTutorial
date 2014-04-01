@@ -6,17 +6,22 @@
 <html class="no-js">
 <!--<![endif]-->
 <head>
+	<!-- Force latest IE rendering engine or ChromeFrame if installed -->
+	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>Plugin Tutorial - @ViewBag.Title</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	
+	<!-- Bootstrap styles -->
 	<link rel="stylesheet" href="/Static/lib/bootstrap/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="/Static/lib/bootstrap/css/bootstrap-theme.min.css" />
-	<link rel="stylesheet" href="/Static/css/main.css">
 	
+	<!-- Generic page styles -->
+	<link rel="stylesheet" href="/Static/css/main.css">
+
 	<script src="/Static/lib/jquery/jquery-1.11.0.min.js"></script>
+	<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
 	<script src="/Static/lib/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/Static/lib/modernizr/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 	@RenderSection("head", false)
@@ -43,11 +48,13 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">File Upload<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li class="dropdown-header">jQuery File Upload</li>
-							<li><a href='@Url.Action("Basic", "JQueryFileUpload")'>Basic</a></li>
+							<li><a href='@Url.Action("BasicOld", "JQueryFileUpload")'>Basic</a></li>
 							<li class="dropdown-header">Generic Handler</li>
 							<li><a href='@Url.Action("GenericHandlerBasic", "JQueryFileUpload")'>Basic</a></li>
 							<li><a href='@Url.Action("GenericHandlerAdvanced", "JQueryFileUpload")'>Advanced</a></li>
 							<li class="divider"></li>
+							<li class="dropdown-header">Demo</li>
+							<li><a href='@Url.Action("Basic", "JQueryFileUpload")'>Basic</a></li>
 							<li><a href="#">Something else here</a></li>
 							<li><a href="#">Separated link</a></li>
 							<li><a href="#">One more separated link</a></li>
@@ -57,7 +64,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="container">
 		@RenderBody()
 		<hr>
@@ -67,7 +74,7 @@
 	</div>
 
 
-	
+
 	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 	@*<script>
 		(function (b, o, i, l, e, r) {

@@ -980,6 +980,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\FileUpload\JQueryFileUpload\Basic.cshtml" />
+    <Content Include="Views\FileUpload\JQueryFileUpload\Demo\_LayoutDemo.cshtml" />
+    <Content Include="Views\FileUpload\JQueryFileUpload\Demo\Basic.cshtml" />
+    <Content Include="Views\FileUpload\JQueryFileUpload\Demo\BasicPlus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

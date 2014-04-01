@@ -1,9 +1,6 @@
 /*jslint nomen: true */
 /*global $ */
-
-
 var url = "/Controllers/FileUpload/AdvancedFileUploadHandler.ashx?FolderPath=xxx";
-
 
 $(document).ready(function () {
 	'use strict';
@@ -20,6 +17,7 @@ $(document).ready(function () {
 		previewAsCanvas: false
 		//start: function (e) {alert('Uploads started');}
 	});
+
 
 	LoadFiles();
 	
@@ -46,10 +44,6 @@ $(document).ready(function () {
                 });
 		}
 	});
-
-
-	
-
 });
 
 

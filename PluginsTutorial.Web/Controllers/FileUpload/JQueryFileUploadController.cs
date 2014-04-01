@@ -13,10 +13,18 @@ namespace PluginsTutorial.Web.Controllers.FileUpload
 {
     public class JQueryFileUploadController : Controller
     {
-		public ActionResult Basic()
+		public ActionResult BasicOld()
 		{
 			return View("~/Views/FileUpload/JQueryFileUpload/Basic.cshtml");
 		}
+
+		public ActionResult Basic()
+		{
+			return View("~/Views/FileUpload/JQueryFileUpload/Demo/Basic.cshtml");
+		}
+
+
+
 
 
 
@@ -57,7 +65,38 @@ namespace PluginsTutorial.Web.Controllers.FileUpload
 			return Content("{\"name\":\"" + r[0].Name + "\",\"type\":\"" + r[0].Type + "\",\"size\":\"" + string.Format("{0} bytes", r[0].Length) + "\"}", "application/json");
 		}
 
-		
+
+
+
+		[HttpPost]
+		public ActionResult UploadFiles2()
+		{
+			var xxx = new List<dynamic>();
+			
+			foreach (string file in Request.Files)
+			{
+				var hpf = Request.Files[file];
+				if (hpf.ContentLength == 0) continue;
+				var savedFileName = Path.Combine(Server.MapPath("~/Resources"), Path.GetFileName(hpf.FileName));
+				hpf.SaveAs(savedFileName);
+
+				xxx.Add(new 
+				{
+					Name = hpf.FileName,
+					Length = hpf.ContentLength,
+					Type = hpf.ContentType,
+				});
+			}
+
+			var js = new JavaScriptSerializer();
+			var str = js.Serialize(xxx);
+
+			//return Json(xxx);
+			//we used strong not json
+			
+			return Content(str);
+		}
+
 
 		//public ActionResult JQueryUI()
 		//{
