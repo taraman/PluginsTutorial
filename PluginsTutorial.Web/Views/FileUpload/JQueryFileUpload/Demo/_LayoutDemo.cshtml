@@ -1,61 +1,46 @@
 ﻿@{
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 @section head {
-	<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
-	<link href="~/Static/plugins/jQueryFileUpload/css/jquery.fileupload.css" rel="stylesheet" />
-	<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-	<script src="~/Static/plugins/jQueryFileUpload/js/vendor/jquery.ui.widget.js"></script>
-	<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-	<!-- This library used to work with IE9 or less, but it will not read the return json object-->
-	<script src="~/Static/plugins/jQueryFileUpload/js/jquery.iframe-transport.js"></script>
-	<!-- The basic File Upload plugin -->
-	<script src="~/Static/plugins/jQueryFileUpload/js/jquery.fileupload.js"></script>
-	<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-	<script src="http://blueimp.github.io/JavaScript-Load-Image/js/load-image.min.js"></script>
-	<!-- The Canvas to Blob plugin is included for image resizing functionality -->
-	<script src="http://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
-	<!-- The File Upload processing plugin -->
-	<script src="~/Static/plugins/jQueryFileUpload/js/jquery.fileupload-process.js"></script>
-	<!-- The File Upload image preview & resize plugin -->
-	<script src="~/Static/plugins/jQueryFileUpload/js/jquery.fileupload-image.js"></script>
-	<!-- The File Upload audio preview plugin -->
-	<script src="~/Static/plugins/jQueryFileUpload/js/jquery.fileupload-audio.js"></script>
-	<!-- The File Upload video preview plugin -->
-	<script src="~/Static/plugins/jQueryFileUpload/js/jquery.fileupload-video.js"></script>
-	<!-- The File Upload validation plugin -->
-	<script src="~/Static/plugins/jQueryFileUpload/js/jquery.fileupload-validate.js"></script>
-}
+    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+    <link href="~/Static/plugins/jQueryFileUpload/css/jquery.fileupload.css" rel="stylesheet" />
+    <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+    <script src="~/Static/plugins/jQueryFileUpload/js/vendor/jquery.ui.widget.js"></script>
+    <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+    <script src="~/Static/plugins/jQueryFileUpload/js/jquery.iframe-transport.js"></script>
+    <!-- The basic File Upload plugin -->
+    <script src="~/Static/plugins/jQueryFileUpload/js/jquery.fileupload.js"></script>
 
+    @RenderSection("subHead", false)
+}
 <h1>jQuery File Upload Demo</h1>
-<h2 class="lead">Basic version</h2>
-<ul class="nav nav-tabs">
-	<li class="active"><a href="basic.html">Basic</a></li>
-	<li><a href="basic-plus.html">Basic Plus</a></li>
-	<li><a href="index.html">Basic Plus UI</a></li>
-	<li><a href="angularjs.html">AngularJS</a></li>
-	<li><a href="jquery-ui.html">jQuery UI</a></li>
+<h2 class="lead">@ViewBag.SubHeader</h2>
+<ul id="tab" class="nav nav-tabs">
+    <li id="Basic" class="active"><a href="@Url.Action("Basic", "JQueryFileUpload")">Basic</a></li>
+    <li id="BasicPlus"><a href="@Url.Action("BasicPlus", "JQueryFileUpload")">Basic Plus</a></li>
+    <li><a href="index.html">Basic Plus UI</a></li>
+    <li><a href="angularjs.html">AngularJS</a></li>
+    <li><a href="jquery-ui.html">jQuery UI</a></li>
 </ul>
 <br>
 <blockquote>
-	<p>@RenderSection("brief", false)</p>
+    <p>@RenderSection("brief", false)</p>
 </blockquote>
 <br>
 @RenderBody()
 <br>
 <div class="panel panel-default">
-	<div class="panel-heading">
-		<h3 class="panel-title">Demo Notes</h3>
-	</div>
-	<div class="panel-body">
-		<ul>
-			<li>The maximum file size for uploads in this demo is <strong>5 MB</strong> (default file size is unlimited).</li>
-			<li>Only image files (<strong>JPG, GIF, PNG</strong>) are allowed in this demo (by default there is no file type restriction).</li>
-			<li>Uploaded files will be deleted automatically after <strong>5 minutes</strong> (demo setting).</li>
-			<li>You can <strong>drag &amp; drop</strong> files from your desktop on this webpage (see <a href="https://github.com/blueimp/jQuery-File-Upload/wiki/Browser-support">Browser support</a>).</li>
-			<li>Please refer to the <a href="https://github.com/blueimp/jQuery-File-Upload">project website</a> and <a href="https://github.com/blueimp/jQuery-File-Upload/wiki">documentation</a> for more information.</li>
-			<li>Built with Twitter's <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> CSS framework and Icons from <a href="http://glyphicons.com/">Glyphicons</a>.</li>
-		</ul>
-	</div>
+    <div class="panel-heading">
+        <h3 class="panel-title">Demo Notes</h3>
+    </div>
+    <div class="panel-body">
+        <ul>
+            <li>The maximum file size for uploads in this demo is <strong>5 MB</strong> (default file size is unlimited).</li>
+            <li>Only image files (<strong>JPG, GIF, PNG</strong>) are allowed in this demo (by default there is no file type restriction).</li>
+            <li>Uploaded files will be deleted automatically after <strong>5 minutes</strong> (demo setting).</li>
+            <li>You can <strong>drag &amp; drop</strong> files from your desktop on this webpage (see <a href="https://github.com/blueimp/jQuery-File-Upload/wiki/Browser-support">Browser support</a>).</li>
+            <li>Please refer to the <a href="https://github.com/blueimp/jQuery-File-Upload">project website</a> and <a href="https://github.com/blueimp/jQuery-File-Upload/wiki">documentation</a> for more information.</li>
+            <li>Built with Twitter's <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> CSS framework and Icons from <a href="http://glyphicons.com/">Glyphicons</a>.</li>
+        </ul>
+    </div>
 </div>

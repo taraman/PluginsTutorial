@@ -13,19 +13,8 @@ namespace PluginsTutorial.Web.Controllers.FileUpload
 {
     public class JQueryFileUploadController : Controller
     {
-		public ActionResult BasicOld()
-		{
-			return View("~/Views/FileUpload/JQueryFileUpload/Basic.cshtml");
-		}
-
-		public ActionResult Basic()
-		{
-			return View("~/Views/FileUpload/JQueryFileUpload/Demo/Basic.cshtml");
-		}
-
-
-
-
+		
+        
 
 
 		public ActionResult GenericHandlerBasic()
@@ -39,39 +28,22 @@ namespace PluginsTutorial.Web.Controllers.FileUpload
 			return View("~/Views/FileUpload/JQueryFileUpload/UsingGenericHandler/Advanced.aspx");
 		}
 
-		
 
+        public ActionResult Basic()
+        {
+            return View("~/Views/FileUpload/JQueryFileUpload/Demo/Basic.cshtml");
+        }
+
+        public ActionResult BasicPlus()
+        {
+            return View("~/Views/FileUpload/JQueryFileUpload/Demo/BasicPlus.cshtml");
+        }
+
+      
 		[HttpPost]
-		public ContentResult UploadFiles()
+		public ActionResult UploadFiles()
 		{
-			var r = new List<UploadFilesResult>();
-
-			foreach (string file in Request.Files)
-			{
-				HttpPostedFileBase hpf = Request.Files[file] as HttpPostedFileBase;
-				if (hpf.ContentLength == 0)
-					continue;
-
-				string savedFileName = Path.Combine(Server.MapPath("~/App_Data"), Path.GetFileName(hpf.FileName));
-				hpf.SaveAs(savedFileName);
-
-				r.Add(new UploadFilesResult()
-				{
-					Name = hpf.FileName,
-					Length = hpf.ContentLength,
-					Type = hpf.ContentType
-				});
-			}
-			return Content("{\"name\":\"" + r[0].Name + "\",\"type\":\"" + r[0].Type + "\",\"size\":\"" + string.Format("{0} bytes", r[0].Length) + "\"}", "application/json");
-		}
-
-
-
-
-		[HttpPost]
-		public ActionResult UploadFiles2()
-		{
-			var xxx = new List<dynamic>();
+			var fileInfoList = new List<dynamic>();
 			
 			foreach (string file in Request.Files)
 			{
@@ -80,7 +52,7 @@ namespace PluginsTutorial.Web.Controllers.FileUpload
 				var savedFileName = Path.Combine(Server.MapPath("~/Resources"), Path.GetFileName(hpf.FileName));
 				hpf.SaveAs(savedFileName);
 
-				xxx.Add(new 
+				fileInfoList.Add(new 
 				{
 					Name = hpf.FileName,
 					Length = hpf.ContentLength,
@@ -89,12 +61,11 @@ namespace PluginsTutorial.Web.Controllers.FileUpload
 			}
 
 			var js = new JavaScriptSerializer();
-			var str = js.Serialize(xxx);
+			var str = js.Serialize(fileInfoList);
 
-			//return Json(xxx);
-			//we used strong not json
-			
-			return Content(str);
+            //return Json(fileInfoList);
+            //return Content(str, "application/json");
+            return Content(str);
 		}
 
 
