@@ -13,9 +13,17 @@ namespace PluginsTutorial.Web.Controllers.FileUpload
 {
     public class JQueryFileUploadController : Controller
     {
-		
-        
 
+        const string AbsoluteRootPath = "/Resources/";
+
+        string VirtualFolderPath
+        {
+            get
+            {
+                var virtualFolderPath = Path.Combine(HttpRuntime.AppDomainAppVirtualPath ?? "", "/", AbsoluteRootPath);
+                return virtualFolderPath;
+            }
+        }
 
 		public ActionResult GenericHandlerBasic()
 		{
@@ -55,17 +63,24 @@ namespace PluginsTutorial.Web.Controllers.FileUpload
 				fileInfoList.Add(new 
 				{
 					Name = hpf.FileName,
+                    Url = string.Concat(VirtualFolderPath, "/", hpf.FileName),
 					Length = hpf.ContentLength,
 					Type = hpf.ContentType,
 				});
 			}
 
-			var js = new JavaScriptSerializer();
-			var str = js.Serialize(fileInfoList);
-
+			//var js = new JavaScriptSerializer();
+			//var str = js.Serialize(fileInfoList);
             //return Json(fileInfoList);
             //return Content(str, "application/json");
-            return Content(str);
+            //return Content(str);
+            
+            var result = Json(fileInfoList);
+            //for IE9 or less which does not accept application/json
+            if (Request.Headers["Accept"] != null && !Request.Headers["Accept"].Contains("application/json"))
+                result.ContentType = "text/plain";
+
+            return result;
 		}
 
 
