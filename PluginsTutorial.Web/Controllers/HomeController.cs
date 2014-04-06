@@ -22,6 +22,12 @@ namespace PluginsTutorial.Web.Controllers
         }
 
 
+        public ActionResult JavaScriptLoadImage()
+        {
+            return View("~/Views/ImageEffects/JavaScriptLoadImage/Demo.cshtml");
+        }
+
+
 		//public ActionResult Test()
 		//{
 		//	return View();

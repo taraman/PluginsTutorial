@@ -1,68 +1,68 @@
 ﻿@{
-    Layout = "~/Views/FileUpload/JQueryFileUpload/Demo/_LayoutDemo.cshtml";
+	Layout = "~/Views/FileUpload/JQueryFileUpload/Demo/_LayoutDemo.cshtml";
 }
 
 @{
-    ViewBag.SubHeader = "Basic version";
+	ViewBag.SubHeader = "Basic version";
 }
 
-@section subHead {
-    <script>
-        /*jslint unparam: true */
-        /*global window, $ */
-        $(function () {
-            'use strict';
+@section javascript {
+	<script>
+		/*jslint unparam: true */
+		/*global window, $ */
+		$(function () {
+			'use strict';
 
-            $("#tab li").removeClass("active");
-            $("#tab li#Basic").addClass("active");
+			$("#tab li").removeClass("active");
+			$("#tab li#Basic").addClass("active");
+			var folderPath = "xxx";
+			var url = '/JQueryFileUpload/UploadFiles' + '?folderPath=' + folderPath;
 
-            $('#fileupload').fileupload({
-                url: '/JQueryFileUpload/UploadFiles',
-                dataType: 'json',
-                //autoUpload: true,
-                done: function (e, data) {
-                    var name = "<b>Name:</b> " + data.result[0].Name;
-                    var type = ", <b>Type:</b> " + data.result[0].Type;
-                    var length = ", <b>Length:</b> " + data.result[0].Length;
-                    $('<p/>').html(name + type + length).appendTo('#files');
-                },
-                progressall: function (e, data) {
-                    var progress = parseInt(data.loaded / data.total * 100, 10);
-                    $('#progress .progress-bar').css('width', progress + '%');
-                }
-            }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
-            //Alternative way for 'progressall'
-            //.on('fileuploadprogressall', function (e, data) {
-            //    var progress = parseInt(data.loaded / data.total * 100, 10);
-            //    $('#progress .progress-bar').css('width', progress + '%');
-            //});
-        });
+			$('#fileupload').fileupload({
+				url: url,
+				dataType: 'json',
+				autoUpload: true,
+				done: function (e, data) {
+					var name = "<b>Name:</b> " + data.result.files[0].name;
+					var type = ", <b>Type:</b> " + data.result.files[0].type;
+					var length = ", <b>Length:</b> " + data.result.files[0].size;
+					$('<p/>').html(name + type + length).appendTo('#files');
+				},
+				progressall: function (e, data) {
+					var progress = parseInt(data.loaded / data.total * 100, 10);
+					$('#progress .progress-bar').css('width', progress + '%');
+				}
+			}).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
+		});
     </script>
 }
 
+
+
 @section brief {
-    File Upload widget with the following:
+	File Upload widget with the following:
     <ul>
-        <li>Multiple file selection</li>
-        <li>Drag&amp;Drop support</li>
-        <li>Progress bar</li>
-        <li>Supports cross-domain</li>
-        <li>Chunked and resumable file uploads</li>
-    </ul>
+		<li>Multiple file selection</li>
+		<li>Drag&amp;Drop support</li>
+		<li>Progress bar</li>
+		<li>Supports cross-domain</li>
+		<li>Chunked and resumable file uploads</li>
+	</ul>
 }
 
 <!-- The fileinput-button span is used to style the file input field as button -->
 <span class="btn btn-success fileinput-button">
-    <i class="glyphicon glyphicon-plus"></i>
-    <span>Select files...</span>
-    <!-- The file input field used as target for the file upload widget -->
-    <input id="fileupload" type="file" name="files[]" multiple>
+	<i class="glyphicon glyphicon-plus"></i>
+	<span>Select files...</span>
+	<!-- The file input field used as target for the file upload widget -->
+	<input id="fileupload" type="file" name="files[]" multiple>
 </span>
-<br /><br />
+<br />
+<br />
 <!-- The global progress bar -->
 <div id="progress" class="progress">
-    <div class="progress-bar progress-bar-success"></div>
-    @*<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0;">
+	<div class="progress-bar progress-bar-success"></div>
+	@*<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0;">
 		<span class="sr-only">0% complete</span>
 	</div>*@
 </div>

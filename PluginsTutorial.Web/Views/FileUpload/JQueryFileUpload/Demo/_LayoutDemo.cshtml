@@ -1,24 +1,30 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@section head {
+
+@section css {
     <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
-    <link href="~/Static/plugins/jQueryFileUpload/css/jquery.fileupload.css" rel="stylesheet" />
+	<link href="~/Static/plugins/jQueryFileUpload/css/jquery.fileupload.css" rel="stylesheet" />
+	@RenderSection("css", false)
+}
+
+@section javascript {
     <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-    <script src="~/Static/plugins/jQueryFileUpload/js/vendor/jquery.ui.widget.js"></script>
+	<script src="~/Static/plugins/jQueryFileUpload/js/vendor/jquery.ui.widget.js"></script>
+
     <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
     <script src="~/Static/plugins/jQueryFileUpload/js/jquery.iframe-transport.js"></script>
-    <!-- The basic File Upload plugin -->
+	
+	<!-- The basic File Upload plugin -->
     <script src="~/Static/plugins/jQueryFileUpload/js/jquery.fileupload.js"></script>
-
-    @RenderSection("subHead", false)
+    @RenderSection("javascript", false)
 }
 <h1>jQuery File Upload Demo</h1>
 <h2 class="lead">@ViewBag.SubHeader</h2>
 <ul id="tab" class="nav nav-tabs">
     <li id="Basic" class="active"><a href="@Url.Action("Basic", "JQueryFileUpload")">Basic</a></li>
     <li id="BasicPlus"><a href="@Url.Action("BasicPlus", "JQueryFileUpload")">Basic Plus</a></li>
-    <li><a href="index.html">Basic Plus UI</a></li>
+    <li id="BasicPlusUI"><a href="@Url.Action("BasicPlusUI", "JQueryFileUpload")">Basic Plus UI</a></li>
     <li><a href="angularjs.html">AngularJS</a></li>
     <li><a href="jquery-ui.html">jQuery UI</a></li>
 </ul>

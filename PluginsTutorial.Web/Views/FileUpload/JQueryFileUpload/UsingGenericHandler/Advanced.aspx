@@ -32,7 +32,7 @@
 </head>
 
 <body>
-	<a href="/Home/Index">Home</a>
+	<a href="/Home/Index">Home</a> | <a href="/JQueryFileUpload/GenericHandlerBasic">Basic</a> | <a href="/JQueryFileUpload/GenericHandlerAdvanced">Advanced</a>
 	<h1>JQuery File Upload</h1>
 	<h2>Generic Handler - Basic</h2>
 	
